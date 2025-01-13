@@ -573,17 +573,22 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   color: #555;
   text-align: left;
 }
+
+/* ... (previous CSS code remains the same) ... */
+
 /* --- FAQ Section --- */
-.faq-section{
+.faq-section {
   padding: 30px 20px;
   text-align: center;
-background: #f9f9f9;
+  background: #f9f9f9;
 }
-.faq-header{
-font-size: 2rem;
+
+.faq-header {
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #222;
 }
+
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -591,34 +596,80 @@ font-size: 2rem;
   text-align: left;
 }
 
-.faq-item{
+.faq-item {
   background: #fff;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.faq-item:hover{
-  transform: translateY(-5px);
-    box-shadow: 0 5px 15px var(--shadow-color);
-}
-.faq-question {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-   transition: all 0.3s ease;
+    overflow: hidden;
 }
 
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+.faq-question-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-question {
+  font-size: 1.1rem;
+  color: #333;
+    padding: 20px;
+  text-align: left;
+    background: transparent;
+    border: none;
+  cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.faq-arrow {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="%23aaa"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[aria-expanded="true"] .faq-arrow {
+  transform: rotate(180deg);
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z" fill="%23aaa"/></svg>');
+}
+.faq-item:hover .faq-question,
+.faq-item:hover .faq-arrow {
+  color: var(--primary-color);
+ }
+
+.faq-item:hover .faq-item[aria-expanded="true"] .faq-arrow {
+  transform: rotate(180deg);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z" fill="%232B59FF"/></svg>');
+
+}
 .faq-answer {
   color: #666;
   font-size: 1rem;
   line-height: 1.5;
-    transition: all 0.3s ease;
+  padding: 0 20px;
+    max-height: 0;
+  overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
 }
-.faq-item:hover .faq-question,
-.faq-item:hover .faq-answer{
-color: var(--primary-color);
+
+.faq-item[aria-expanded="true"] .faq-answer {
+    max-height: 500px; /* or a specific value based on content */
+    padding-bottom: 20px;
 }
+
+/* --- Hamburger Menu Spacing --- */
+.nav-toggle {
+   margin-right: 20px;
+}
+
+/* ... (remaining CSS code) ... */
 /* --- About Us Section --- */
 .about-us-section{
   padding: 30px 20px;

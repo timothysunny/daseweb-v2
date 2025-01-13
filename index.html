@@ -182,36 +182,78 @@
           </div>
         </div>
     </section>
-      <section class="faq-section">
-          <div class="container">
-              <h2 class="faq-header">Frequently Asked Questions</h2>
-             <div class="faq-grid">
-                 <div class="faq-item">
-                     <h3 class="faq-question">How do I start earning with DaseWeb?</h3>
-                     <p class="faq-answer">To start earning, simply create a free account, and you’ll get access to all available tasks. Complete tasks such as liking posts, following profiles, and watching videos to earn real money.</p>
-                  </div>
-                <div class="faq-item">
-                  <h3 class="faq-question">How does payment work?</h3>
-                     <p class="faq-answer">You can withdraw your earnings directly to your bank account or preferred payment method. We process payments quickly after your tasks are verified.</p>
-                  </div>
-                <div class="faq-item">
-                  <h3 class="faq-question">What types of tasks are available?</h3>
-                     <p class="faq-answer">You will find a wide range of tasks, including following social media profiles, liking posts, commenting, watching videos, and more.</p>
-                 </div>
-                <div class="faq-item">
-                     <h3 class="faq-question">How do I know if a task is verified?</h3>
-                     <p class="faq-answer">Once you complete a task, it will be reviewed, and if it meets the required standards, it will be verified. You will receive credit once a task is verified.</p>
-                 </div>
-                 <div class="faq-item">
-                     <h3 class="faq-question">How do I post a task as an advertiser?</h3>
-                     <p class="faq-answer">To post an ad you need to sign up for an advertiser account, and once verified you'll have access to the advertiser dashboard where you can create your task. </p>
-                 </div>
-                <div class="faq-item">
-                     <h3 class="faq-question">Is there any support if I have any issue?</h3>
-                     <p class="faq-answer">Yes, if you have any issue, you can contact support and they'll try to assist you with your issue.</p>
-                 </div>
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-question-wrapper">
+                <button class="faq-question" aria-expanded="false">
+                  How do I start earning with DaseWeb?
+                </button>
+                <span class="faq-arrow"></span>
             </div>
+            <div class="faq-answer">
+              <p>To start earning, simply create a free account, and you’ll get access to all available tasks. Complete tasks such as liking posts, following profiles, and watching videos to earn real money.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question-wrapper">
+                <button class="faq-question" aria-expanded="false">
+                  How does payment work?
+                </button>
+                  <span class="faq-arrow"></span>
+              </div>
+            <div class="faq-answer">
+              <p>You can withdraw your earnings directly to your bank account or preferred payment method. We process payments quickly after your tasks are verified.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question-wrapper">
+                <button class="faq-question" aria-expanded="false">
+                  What types of tasks are available?
+                </button>
+                  <span class="faq-arrow"></span>
+              </div>
+            <div class="faq-answer">
+              <p>You will find a wide range of tasks, including following social media profiles, liking posts, commenting, watching videos, and more.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question-wrapper">
+                <button class="faq-question" aria-expanded="false">
+                   How do I know if a task is verified?
+                 </button>
+                   <span class="faq-arrow"></span>
+              </div>
+            <div class="faq-answer">
+              <p>Once you complete a task, it will be reviewed, and if it meets the required standards, it will be verified. You will receive credit once a task is verified.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question-wrapper">
+                <button class="faq-question" aria-expanded="false">
+                   How do I post a task as an advertiser?
+                 </button>
+                    <span class="faq-arrow"></span>
+              </div>
+            <div class="faq-answer">
+               <p>To post an ad you need to sign up for an advertiser account, and once verified you'll have access to the advertiser dashboard where you can create your task. </p>
+            </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question-wrapper">
+                <button class="faq-question" aria-expanded="false">
+                 Is there any support if I have any issue?
+               </button>
+                  <span class="faq-arrow"></span>
+              </div>
+            <div class="faq-answer">
+              <p>Yes, if you have any issue, you can contact support and they'll try to assist you with your issue.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
       <section class="about-us-section" id="about">
           <div class="container">
@@ -219,7 +261,6 @@
              <div class="about-content">
                   <p>Welcome to Dase Web, a platform created to revolutionize how people earn money online. We believe that your time and online interactions have value, and we've built a platform to reflect that. Our mission is to make it easier for users to earn a flexible income by completing simple tasks, and to connect advertisers with a vast network of engaged users.</p>
                   <p>Founded in 2024, Dase Web has already connected more than 10,000 users and 50 advertisers, and we are proud to have paid out more than 1M Naira to our users. We are committed to providing a safe and reliable platform for everyone involved, where advertisers can get the engagement they are looking for, and users can earn fast and reliably. </p>
-                  <p>Our core values are transparency, reliability, and user satisfaction. We are constantly improving Dase Web to be a better experience for everyone, with new features added to improve the platform for users and advertisers alike. Join Dase Web and be a part of our community.</p>
             </div>
         </div>
     </section>
@@ -276,6 +317,34 @@
         });
         });
     });
+
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.closest('.faq-item');
+        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+
+
+      faqQuestions.forEach(otherQuestion => {
+          if (otherQuestion !== question && otherQuestion.getAttribute('aria-expanded') === 'true') {
+                otherQuestion.setAttribute('aria-expanded', 'false');
+              otherQuestion.closest('.faq-item').removeAttribute('aria-expanded');
+
+          }
+      });
+
+      if (isExpanded) {
+          question.setAttribute('aria-expanded', 'false');
+          faqItem.removeAttribute('aria-expanded');
+
+      } else {
+          question.setAttribute('aria-expanded', 'true');
+          faqItem.setAttribute('aria-expanded', 'true');
+
+      }
+    });
+  });
 
   </script>
 </body>
